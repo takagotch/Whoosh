@@ -24,11 +24,28 @@ def assert_timespan(ts, sargs, eargs):
 def assert_unamb(ts, **kwargs):
   assert_unamb_span(ts, kwargs, kwargs)
   
+def assert_unamb_span(ts, sargs, eargs):
+  startdt = adatetime(**sargs).floor()
+  enddt = adatetime(**eargs).ceil()
+  assert ts.start == startdt, "start %s != %s" % (ts.start, startdt)
+  assert ts.end == enddt, "end %s != %s" % (ts.end, enddt)
 
+def assert_datespan(ts, startdate, enddate):
+  assert ts.__class__is timespan
+  assert ts.start == startdate
+  assert ts.end == enddate
+  
+def test_simple_dateparse(t=english.simple):
 
+def test_all():
+  p = english.all
+  test_bundle_sups(p)
+  test_bundle(p)
+  test_ranges(p)
+  
+def test_final_dates(p=english):
 
-
-
+def test_final_ranges(p=english):
 ```
 
 ```
